@@ -8,8 +8,13 @@ const { t, locale } = useLocale()
 const nameRef = ref(null)
 const titleRef = ref(null)
 const nameTextRef = ref(null)
+const titleWrapRef = ref(null)
 const titleTextRef = ref(null)
+const signatureWrapRef = ref(null)
+const signatureTextRef = ref(null)
 const cursorRef = ref(null)
+
+const SIGNATURE_NAME = 'Andrés Filippi'
 
 const TYPE_SPEED = 45
 const START_DELAY = 300
@@ -50,13 +55,27 @@ async function runTypewriter() {
   const nameEl = nameRef.value
   const titleEl = titleRef.value
   const nameTextEl = nameTextRef.value
+  const titleWrapEl = titleWrapRef.value
   const titleTextEl = titleTextRef.value
+  const signatureWrapEl = signatureWrapRef.value
+  const signatureTextEl = signatureTextRef.value
   const cursorEl = cursorRef.value
 
-  if (!nameEl || !titleEl || !nameTextEl || !titleTextEl || !cursorEl) return
+  if (
+    !nameEl ||
+    !titleEl ||
+    !nameTextEl ||
+    !titleWrapEl ||
+    !titleTextEl ||
+    !signatureWrapEl ||
+    !signatureTextEl ||
+    !cursorEl
+  )
+    return
 
   nameTextEl.textContent = ''
   titleTextEl.textContent = ''
+  signatureTextEl.textContent = ''
   cursorEl.style.display = ''
   nameEl.appendChild(cursorEl)
 
@@ -69,11 +88,15 @@ async function runTypewriter() {
   await wait(LINE_PAUSE)
   if (myRunId !== runId) return
 
-  titleEl.appendChild(cursorEl)
+  titleWrapEl.appendChild(cursorEl)
   await typeText(titleTextEl, t('hero.tagline'), myRunId)
   if (myRunId !== runId) return
 
-  cursorEl.style.display = 'none'
+  await wait(LINE_PAUSE)
+  if (myRunId !== runId) return
+
+  signatureWrapEl.appendChild(cursorEl)
+  await typeText(signatureTextEl, ` ${SIGNATURE_NAME}`, myRunId)
 }
 
 onMounted(() => {
@@ -98,7 +121,9 @@ function goToAbout() {
   <section id="hero" class="hero">
     <div class="container hero__inner">
       <h1 ref="nameRef" class="hero__name"><span ref="nameTextRef"></span></h1>
-      <p ref="titleRef" class="hero__title"><span ref="titleTextRef"></span></p>
+      <p ref="titleRef" class="hero__title">
+        <span ref="titleWrapRef" class="hero__tagline-wrap"><span ref="titleTextRef"></span></span><span ref="signatureWrapRef" class="hero__signature-wrap"><span ref="signatureTextRef" class="hero__signature"></span></span>
+      </p>
       <span ref="cursorRef" class="typewriter-cursor" aria-hidden="true"></span>
 
       <button type="button" class="scroll-indicator" @click="goToAbout">
@@ -149,6 +174,21 @@ function goToAbout() {
   font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: 400;
   color: var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.hero__signature-wrap {
+  margin-left: auto;
+  margin-right: calc(5.75rem - 7px);
+  padding-left: 1rem;
+  color: var(--text);
+}
+
+.hero__signature {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .typewriter-cursor {
@@ -158,6 +198,7 @@ function goToAbout() {
   margin-left: 3px;
   background: currentColor;
   vertical-align: text-bottom;
+  transform: translateY(-2px);
   animation: cursor-blink 0.9s step-end infinite;
 }
 

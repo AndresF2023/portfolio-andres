@@ -1,11 +1,11 @@
 const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/icons'
 const TABLER_BASE = 'https://cdn.jsdelivr.net/npm/@tabler/icons@3.46.0/icons/outline'
 
-function devicon(path, invert = false) {
+export function devicon(path, invert = false) {
   return { icon: `${DEVICON_BASE}/${path}.svg`, mask: false, invert }
 }
 
-function tabler(name) {
+export function tabler(name) {
   return { icon: `${TABLER_BASE}/${name}.svg`, mask: true, invert: false }
 }
 

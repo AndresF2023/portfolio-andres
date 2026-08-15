@@ -242,6 +242,15 @@ onBeforeUnmount(() => {
                   </li>
                 </ul>
 
+                <a
+                  v-if="activeProject.link"
+                  :href="activeProject.link"
+                  class="project-overlay__live-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ t('projects.viewLive') }} <span class="project-card__arrow">→</span>
+                </a>
               </div>
             </div>
           </div>
@@ -658,6 +667,16 @@ onBeforeUnmount(() => {
   border: 1px solid rgba(240, 240, 240, 0.15);
   border-radius: 999px;
   color: rgba(240, 240, 240, 0.65);
+}
+
+.project-overlay__live-link {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 </style>

@@ -16,7 +16,7 @@ export const translations = {
     },
     about: {
       label: 'About',
-      bio1: "I'm Andrés, a programming technician from UTN (Córdoba, Argentina), graduated with honors. I work as a freelance developer building custom web solutions, from management platforms to AI-powered tools.",
+      bio1: "I'm Andrés, a programming technician from UTN (Córdoba, Argentina), graduated with honors. For almost 1 year I've worked as a freelance developer building custom web solutions, from management platforms to AI-powered tools.",
       bio2: "My approach is iterative, I'd rather dive in, explore, and adjust along the way. That trial-and-error process is where I find the best results. I work autonomously, but I stay close to the client throughout: at the end of the day, the project is for them, and I want the result to reflect who they are as much as it reflects who I am.",
       bio3: "What I care about most in every delivery is that it feels fresh, creative, visually considered, and unlike anything I've built before.",
       bio4: "Got a project in mind? I'd love to hear about it.",
@@ -27,6 +27,7 @@ export const translations = {
     projects: {
       label: 'Projects',
       viewDetails: 'View details',
+      viewLive: 'View live site',
       close: 'Close',
       stack: 'Stack',
       screenshot: 'Screenshot',
@@ -42,6 +43,7 @@ export const translations = {
             "Website for LubriBox Car Service, an oil change shop in Córdoba, Argentina. Customers select their car's brand, model, and year, and the system calculates the exact price for each service based on the engine's oil capacity — backed by a catalog of over 200 models across 17 brands verified for the Argentine market. It also lets customers book an appointment through a 3-step form that opens WhatsApp with a pre-filled message and generates a Google Calendar link. It includes an admin panel with protected login to manage services and categories, with changes persisted to Vercel Blob.",
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
           inProduction: false,
+          link: 'https://lubribox.vercel.app',
           images: [
             '/projects/lubribox/main.png',
             '/projects/lubribox/turnos.png',
@@ -74,6 +76,7 @@ export const translations = {
             'Catalog website for Gastaldi Distributions, a distribution company that showcases its products with up-to-date pricing and stock availability. Customers can browse the catalog and reach out directly via WhatsApp to place orders. It includes an admin panel where the team can add, edit, and remove products, update prices, and mark items as in stock or sold out — reflecting those changes in real time for both the internal team and customers browsing the catalog.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
           inProduction: true,
+          link: 'https://gastaldi-distribuciones.vercel.app',
           images: [
             '/projects/gastaldi-distributions/main.png',
             '/projects/gastaldi-distributions/admin.png',
@@ -87,6 +90,7 @@ export const translations = {
             'Portfolio website for BOLT, an architecture and design studio based in Córdoba, Argentina, working across Argentina, Paraguay, and Guatemala on projects of different scales: single-family homes, commercial spaces, apartment buildings, collective housing, and educational facilities. The site showcases their projects and the three service tiers they offer — visualization only, preliminary design with renders, or a complete project with construction-ready documentation — with 3D visualization as a core part of every presentation. It includes downloadable PDFs of their commercial proposal and portfolio, and a contact button that redirects to a Google Forms submission.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
           inProduction: true,
+          link: 'https://bolt-wheat-alpha.vercel.app',
           images: ['/projects/bolt/main.png'],
         },
         {
@@ -104,6 +108,7 @@ export const translations = {
     contact: {
       label: 'Contact',
       heading: "Let's work together?",
+      downloadCV: 'Download CV',
     },
     header: {
       menuToggle: 'Open menu',
@@ -129,7 +134,7 @@ export const translations = {
     },
     about: {
       label: 'Acerca de',
-      bio1: 'Soy Andrés, técnico en programación egresado de la UTN (Córdoba, Argentina) con honores. Trabajo como desarrollador freelance construyendo soluciones web a medida, desde plataformas de gestión hasta herramientas con IA.',
+      bio1: 'Soy Andrés, técnico en programación egresado de la UTN (Córdoba, Argentina) con honores. Hace casi 1 año que trabajo como desarrollador freelance construyendo soluciones web a medida, desde plataformas de gestión hasta herramientas con IA.',
       bio2: 'Mi enfoque es iterativo: prefiero meterme de lleno, explorar y ajustar sobre la marcha. Ese proceso de prueba y error es donde encuentro los mejores resultados. Trabajo de forma autónoma, pero me mantengo cerca del cliente durante todo el proceso: al final del día, el proyecto es para él, y quiero que el resultado refleje quién es tanto como refleja quién soy yo.',
       bio3: 'Lo que más me importa en cada entrega es que se sienta fresco, creativo, visualmente cuidado, y distinto a todo lo que hice antes.',
       bio4: '¿Tenés un proyecto en mente? Me encantaría escucharlo.',
@@ -140,6 +145,7 @@ export const translations = {
     projects: {
       label: 'Proyectos',
       viewDetails: 'Ver detalles',
+      viewLive: 'Ver sitio en vivo',
       close: 'Cerrar',
       stack: 'Stack',
       screenshot: 'Captura',
@@ -155,6 +161,7 @@ export const translations = {
             'Sitio web para LubriBox Car Service, un lubricentro de Córdoba. Los clientes seleccionan marca, modelo y año de su auto, y el sistema calcula el precio exacto de cada servicio según los litros de aceite del motor — con un catálogo de más de 200 modelos de 17 marcas verificado para el mercado argentino. También permite sacar turno en un formulario de 3 pasos que abre WhatsApp con el mensaje prearmado y genera un link para agendarlo en Google Calendar. Incluye un panel de administrador con login protegido para gestionar servicios y categorías, con los cambios guardados en Vercel Blob.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
           inProduction: false,
+          link: 'https://lubribox.vercel.app',
           images: [
             '/projects/lubribox/main.png',
             '/projects/lubribox/turnos.png',
@@ -187,6 +194,7 @@ export const translations = {
             'Sitio web de catálogo para Gastaldi Distribuciones, una distribuidora que muestra sus productos con precios actualizados y disponibilidad de stock. Los clientes pueden explorar el catálogo y contactar directamente por WhatsApp para hacer sus pedidos. Incluye un panel de administrador donde el equipo puede agregar, editar y eliminar productos, actualizar precios, y marcar qué artículos están en stock o agotados — reflejando esos cambios en tiempo real tanto para el equipo interno como para los clientes que ven el catálogo.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
           inProduction: true,
+          link: 'https://gastaldi-distribuciones.vercel.app',
           images: [
             '/projects/gastaldi-distributions/main.png',
             '/projects/gastaldi-distributions/admin.png',
@@ -200,6 +208,7 @@ export const translations = {
             'Sitio de portfolio para BOLT, un estudio de arquitectura y diseño de Córdoba que trabaja en Argentina, Paraguay y Guatemala, en proyectos de distintas escalas: viviendas unifamiliares, comercios, edificios de departamentos, vivienda colectiva y equipamiento educativo. El sitio muestra sus proyectos y las tres modalidades de servicio que ofrecen —solo visualización, anteproyecto con imágenes, o proyecto completo con documentación para obra—, con la visualización 3D como parte central de cada presentación. Incluye descarga en PDF de la propuesta comercial y el portfolio, y un botón de contacto que redirige a un formulario de Google Forms.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
           inProduction: true,
+          link: 'https://bolt-wheat-alpha.vercel.app',
           images: ['/projects/bolt/main.png'],
         },
         {
@@ -217,6 +226,7 @@ export const translations = {
     contact: {
       label: 'Contacto',
       heading: '¿Trabajamos juntos?',
+      downloadCV: 'Descargar CV',
     },
     header: {
       menuToggle: 'Abrir menú',
