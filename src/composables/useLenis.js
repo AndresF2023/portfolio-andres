@@ -31,6 +31,14 @@ export function scrollToTarget(target) {
   lenis.scrollTo(target)
 }
 
+export function stopScroll() {
+  lenis?.stop()
+}
+
+export function startScroll() {
+  lenis?.start()
+}
+
 export function destroyLenis() {
   if (!lenis) return
   lenis.destroy()

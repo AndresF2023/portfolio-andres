@@ -49,6 +49,7 @@ const links = [
 
 <style scoped>
 .contact {
+  min-height: auto;
   padding-bottom: calc(var(--space-section) * 1.5);
 }
 

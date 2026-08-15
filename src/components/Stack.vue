@@ -1,12 +1,13 @@
 <script setup>
 import { useLocale } from '../composables/useLocale'
+import { getTechIcon } from '../utils/techIcons'
 
 const { t } = useLocale()
 
 const categories = [
   {
     name: 'Core Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    items: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
     name: 'Backend / Full-Stack',
@@ -17,12 +18,20 @@ const categories = [
     items: ['Supabase', 'Vercel', 'Web Application Security'],
   },
   {
+    name: 'Design Tools',
+    items: ['Figma', 'Adobe Creative Suite'],
+  },
+  {
+    name: 'Dev Tools',
+    items: ['GitHub', 'VS Code'],
+  },
+  {
     name: 'Practices',
     items: ['Full-Stack Development', 'Responsive Web Design'],
   },
   {
     name: 'Differentiators',
-    items: ['AI Integration', 'Python', 'API Integration'],
+    items: ['AI Integration', 'Claude', 'Python', 'API Integration'],
   },
 ]
 </script>
@@ -37,6 +46,24 @@ const categories = [
           <h3 class="stack__category">{{ category.name }}</h3>
           <ul class="stack__items">
             <li v-for="item in category.items" :key="item" class="stack__item">
+              <template v-if="getTechIcon(item)">
+                <span
+                  v-if="getTechIcon(item).mask"
+                  class="stack__icon stack__icon--mask"
+                  :style="{ maskImage: `url('${getTechIcon(item).icon}')`, WebkitMaskImage: `url('${getTechIcon(item).icon}')` }"
+                  aria-hidden="true"
+                ></span>
+                <img
+                  v-else
+                  :src="getTechIcon(item).icon"
+                  :alt="item"
+                  class="stack__icon"
+                  :class="{ 'stack__icon--invert': getTechIcon(item).invert }"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+              </template>
               {{ item }}
             </li>
           </ul>
@@ -47,6 +74,10 @@ const categories = [
 </template>
 
 <style scoped>
+.stack {
+  min-height: auto;
+}
+
 .stack__label {
   display: block;
   font-size: 0.85rem;
@@ -79,24 +110,36 @@ const categories = [
 .stack__items {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .stack__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 0.95rem;
   color: rgba(240, 240, 240, 0.75);
-  padding-left: 1rem;
-  position: relative;
 }
 
-.stack__item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
+.stack__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.stack__icon--invert {
+  filter: invert(1);
+}
+
+.stack__icon--mask {
+  display: inline-block;
+  background-color: var(--accent);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 </style>

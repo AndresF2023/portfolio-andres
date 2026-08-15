@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Respaldos de imágenes originales sin optimizar (no se despliegan)
+assets-originals/
+public/lucid-hero-full_upscayl_4x_remacri-4x.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -6,6 +6,7 @@ import About from './components/About.vue'
 import Stack from './components/Stack.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
+import Footer from './components/Footer.vue'
 import BackgroundScene from './components/BackgroundScene.vue'
 import Header from './components/Header.vue'
 
@@ -27,5 +28,6 @@ onUnmounted(() => {
     <Stack />
     <Projects />
     <Contact />
+    <Footer />
   </main>
 </template>

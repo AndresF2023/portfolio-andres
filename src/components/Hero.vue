@@ -57,6 +57,7 @@ async function runTypewriter() {
 
   nameTextEl.textContent = ''
   titleTextEl.textContent = ''
+  cursorEl.style.display = ''
   nameEl.appendChild(cursorEl)
 
   await wait(START_DELAY)
@@ -70,6 +71,9 @@ async function runTypewriter() {
 
   titleEl.appendChild(cursorEl)
   await typeText(titleTextEl, t('hero.tagline'), myRunId)
+  if (myRunId !== runId) return
+
+  cursorEl.style.display = 'none'
 }
 
 onMounted(() => {
@@ -118,14 +122,18 @@ function goToAbout() {
 
 <style scoped>
 .hero {
+  position: relative;
   min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: var(--space-section);
   padding-bottom: var(--space-section);
+  overflow: hidden;
 }
 
 .hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 900px;
 }
 

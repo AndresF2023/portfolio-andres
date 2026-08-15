@@ -78,8 +78,6 @@ function goTo(target) {
 
 <style scoped>
 .header {
-  --accent: #1d9e75;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -88,18 +86,18 @@ function goTo(target) {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background: #212121;
+  background: rgba(33, 33, 33, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(240, 240, 240, 0.08);
 }
 
 .header__inner {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
 }
 
 .header__logo {
@@ -207,7 +205,9 @@ function goTo(target) {
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 0;
-    background: #212121;
+    background: rgba(33, 33, 33, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(240, 240, 240, 0.08);
     transform: translateY(-8px);
     opacity: 0;

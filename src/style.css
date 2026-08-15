@@ -1,7 +1,7 @@
 :root {
   --bg: #212121;
   --text: #f0f0f0;
-  --accent: #1a6b4a;
+  --accent: #1d9e75;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -28,6 +28,9 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgba(33, 33, 33, 0.6), rgba(33, 33, 33, 0.6)), url('/lucid-hero-full4x.jpg');
+  background-size: cover;
+  background-position: top center;
 }
 
 #app {

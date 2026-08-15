@@ -9,6 +9,10 @@ watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, locale.value)
 })
 
+watchEffect(() => {
+  document.title = translations[locale.value].meta.title
+})
+
 function setLocale(newLocale) {
   locale.value = newLocale
 }
