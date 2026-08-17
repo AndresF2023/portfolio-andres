@@ -37,16 +37,34 @@ function imageCount(project) {
 
 // pantallazos de página completa (muy altos, ej. landing con scroll largo) no
 // entran recortados en el marco fijo del carrusel: se muestran a tamaño
-// natural y se pueden scrollear en vez de recortarlos con object-fit: cover
+// natural y se pueden scrollear en vez de recortarlos con object-fit: cover.
+// Las capturas muy panorámicas (más anchas que el marco) tienen el problema
+// inverso: en vez de dejar un hueco vacío al costado/abajo, el marco adopta
+// el ancho real de la imagen activa (con un tope para no achatarlo de más).
 const GALLERY_RATIO = 16 / 10
+const MAX_WIDE_RATIO = 2.2
 const tallImageSrcs = ref(new Set())
+const wideImageSrcs = ref(new Set())
+const imageRatios = ref({})
 
 function handleSlideImageLoad(e) {
   const img = e.target
-  if (img.naturalWidth / img.naturalHeight < GALLERY_RATIO) {
-    tallImageSrcs.value = new Set(tallImageSrcs.value).add(img.getAttribute('src'))
+  const ratio = img.naturalWidth / img.naturalHeight
+  const src = img.getAttribute('src')
+  imageRatios.value = { ...imageRatios.value, [src]: ratio }
+  if (ratio < GALLERY_RATIO) {
+    tallImageSrcs.value = new Set(tallImageSrcs.value).add(src)
+  } else if (ratio > GALLERY_RATIO * 1.1) {
+    wideImageSrcs.value = new Set(wideImageSrcs.value).add(src)
   }
 }
+
+const galleryRatio = computed(() => {
+  const src = activeProject.value?.images?.[imageIndex.value]
+  const ratio = src && imageRatios.value[src]
+  if (!ratio || ratio <= GALLERY_RATIO) return GALLERY_RATIO
+  return Math.min(ratio, MAX_WIDE_RATIO)
+})
 
 function prevImage() {
   if (!activeProject.value) return
@@ -156,7 +174,10 @@ onBeforeUnmount(() => {
               <div class="project-overlay__gallery">
                 <div
                   class="project-overlay__track"
-                  :style="{ transform: `translateX(-${imageIndex * 100}%) translateZ(0)` }"
+                  :style="{
+                    transform: `translateX(-${imageIndex * 100}%) translateZ(0)`,
+                    aspectRatio: galleryRatio,
+                  }"
                 >
                   <div
                     v-for="n in imageCount(activeProject)"
@@ -168,7 +189,10 @@ onBeforeUnmount(() => {
                       :src="activeProject.images[n - 1]"
                       :alt="`${activeProject.name} — ${t('projects.screenshot')} ${n}`"
                       class="project-overlay__slide-img"
-                      :class="{ 'project-overlay__slide-img--tall': tallImageSrcs.has(activeProject.images[n - 1]) }"
+                      :class="{
+                        'project-overlay__slide-img--tall': tallImageSrcs.has(activeProject.images[n - 1]),
+                        'project-overlay__slide-img--wide': wideImageSrcs.has(activeProject.images[n - 1]),
+                      }"
                       @load="handleSlideImageLoad"
                     />
                     <template v-else>{{ t('projects.screenshot') }} {{ n }}</template>
@@ -516,6 +540,7 @@ onBeforeUnmount(() => {
 @media (min-width: 900px) {
   .project-overlay__content {
     flex-direction: row;
+    align-items: flex-start;
     padding: 0 3rem 3rem;
     gap: 3rem;
   }
@@ -537,6 +562,7 @@ onBeforeUnmount(() => {
 }
 
 .project-overlay__slide {
+  position: relative;
   flex: 0 0 100%;
   display: flex;
   align-items: flex-start;
@@ -551,11 +577,17 @@ onBeforeUnmount(() => {
 }
 
 .project-overlay__slide-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   flex-shrink: 0;
+}
+
+.project-overlay__slide-img--wide {
+  object-fit: contain;
 }
 
 .project-overlay__slide-img--tall {
