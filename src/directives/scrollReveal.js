@@ -5,7 +5,10 @@ export const scrollReveal = {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          el.classList.toggle('is-visible', entry.isIntersecting)
+          if (entry.isIntersecting) {
+            el.classList.add('is-visible')
+            observer.unobserve(el)
+          }
         })
       },
       { threshold: 0.15 }

@@ -180,10 +180,17 @@ function goToAbout() {
 }
 
 .hero__signature-wrap {
-  margin-left: auto;
-  margin-right: calc(5.75rem - 7px);
-  padding-left: 1rem;
+  margin-left: 0;
+  padding-left: 0;
   color: var(--text);
+}
+
+@media (min-width: 640px) {
+  .hero__signature-wrap {
+    margin-left: auto;
+    margin-right: calc(5.75rem - 7px);
+    padding-left: 1rem;
+  }
 }
 
 .hero__signature {

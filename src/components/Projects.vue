@@ -277,12 +277,13 @@ onBeforeUnmount(() => {
 
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
@@ -304,7 +305,6 @@ onBeforeUnmount(() => {
 
 .project-card:hover {
   border-color: #1d9e75;
-  transform: translateY(-4px);
   box-shadow: 0 0 0 1px rgba(29, 158, 117, 0.15), 0 10px 24px rgba(29, 158, 117, 0.1);
 }
 

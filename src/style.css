@@ -60,6 +60,8 @@ section {
 }
 
 .container {
+  width: 100%;
+  min-width: 0;
   max-width: var(--container);
   margin: 0 auto;
 }
