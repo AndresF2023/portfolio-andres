@@ -5,6 +5,7 @@ import { scrollToTarget } from '../composables/useLenis'
 
 const { t, locale } = useLocale()
 
+const innerRef = ref(null)
 const nameRef = ref(null)
 const titleRef = ref(null)
 const nameTextRef = ref(null)
@@ -52,6 +53,7 @@ async function runTypewriter() {
 
   clearTimeout(pendingTimeout)
 
+  const innerEl = innerRef.value
   const nameEl = nameRef.value
   const titleEl = titleRef.value
   const nameTextEl = nameTextRef.value
@@ -62,6 +64,7 @@ async function runTypewriter() {
   const cursorEl = cursorRef.value
 
   if (
+    !innerEl ||
     !nameEl ||
     !titleEl ||
     !nameTextEl ||
@@ -72,6 +75,15 @@ async function runTypewriter() {
     !cursorEl
   )
     return
+
+  // .hero centra el contenido verticalmente (align-items: center): si no se
+  // reserva de antemano el alto final, el bloque se recentra a medida que el
+  // texto crece y da la sensación de que el fondo se desliza en vez de que
+  // el texto baje.
+  nameTextEl.textContent = t('hero.greeting')
+  titleTextEl.textContent = t('hero.tagline')
+  signatureTextEl.textContent = ` ${SIGNATURE_NAME}`
+  innerEl.style.minHeight = `${innerEl.getBoundingClientRect().height}px`
 
   nameTextEl.textContent = ''
   titleTextEl.textContent = ''
@@ -97,6 +109,9 @@ async function runTypewriter() {
 
   signatureWrapEl.appendChild(cursorEl)
   await typeText(signatureTextEl, ` ${SIGNATURE_NAME}`, myRunId)
+  if (myRunId !== runId) return
+
+  innerEl.style.minHeight = ''
 }
 
 onMounted(() => {
@@ -119,7 +134,7 @@ function goToAbout() {
 
 <template>
   <section id="hero" class="hero">
-    <div class="container hero__inner">
+    <div ref="innerRef" class="container hero__inner">
       <h1 ref="nameRef" class="hero__name"><span ref="nameTextRef"></span></h1>
       <p ref="titleRef" class="hero__title">
         <span ref="titleWrapRef" class="hero__tagline-wrap"><span ref="titleTextRef"></span></span><span ref="signatureWrapRef" class="hero__signature-wrap"><span ref="signatureTextRef" class="hero__signature"></span></span>
