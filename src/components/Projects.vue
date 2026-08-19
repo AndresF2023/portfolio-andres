@@ -114,9 +114,9 @@ onBeforeUnmount(() => {
         >
           <div class="project-card__header">
             <h3 class="project-card__name">{{ project.name }}</h3>
-            <span v-if="project.inProduction" class="status-badge">
-              <span class="status-dot"></span>
-              {{ t('projects.inProduction') }}
+            <span class="status-badge" :class="{ 'status-badge--development': project.status === 'development' }">
+              <span class="status-dot" :class="{ 'status-dot--development': project.status === 'development' }"></span>
+              {{ project.status === 'development' ? t('projects.inDevelopment') : t('projects.inProduction') }}
             </span>
           </div>
           <p class="project-card__description">{{ project.shortDescription }}</p>
@@ -165,7 +165,10 @@ onBeforeUnmount(() => {
                 :class="{ 'is-active': index === activeIndex }"
                 @click="switchProject(index)"
               >
-                <span v-if="project.inProduction" class="status-dot status-dot--tab"></span>
+                <span
+                  class="status-dot status-dot--tab"
+                  :class="{ 'status-dot--development': project.status === 'development' }"
+                ></span>
                 {{ project.name }}
               </button>
             </aside>
@@ -234,9 +237,15 @@ onBeforeUnmount(() => {
               <div class="project-overlay__info">
                 <div class="project-overlay__header">
                   <h3 class="project-overlay__name">{{ activeProject.name }}</h3>
-                  <span v-if="activeProject.inProduction" class="status-badge">
-                    <span class="status-dot"></span>
-                    {{ t('projects.inProduction') }}
+                  <span
+                    class="status-badge"
+                    :class="{ 'status-badge--development': activeProject.status === 'development' }"
+                  >
+                    <span
+                      class="status-dot"
+                      :class="{ 'status-dot--development': activeProject.status === 'development' }"
+                    ></span>
+                    {{ activeProject.status === 'development' ? t('projects.inDevelopment') : t('projects.inProduction') }}
                   </span>
                 </div>
                 <p class="project-overlay__description">{{ activeProject.description }}</p>
@@ -418,6 +427,10 @@ onBeforeUnmount(() => {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: var(--accent);
+}
+
+.status-badge--development {
   color: #eab308;
 }
 
@@ -426,15 +439,32 @@ onBeforeUnmount(() => {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  background: var(--accent);
+  animation: status-pulse-production 1.6s ease-in-out infinite;
+}
+
+.status-dot--development {
   background: #eab308;
-  animation: status-pulse 1.6s ease-in-out infinite;
+  animation-name: status-pulse-development;
 }
 
 .status-dot--tab {
   margin-right: 0.15rem;
 }
 
-@keyframes status-pulse {
+@keyframes status-pulse-production {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(29, 158, 117, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 158, 117, 0);
+  }
+}
+
+@keyframes status-pulse-development {
   0% {
     box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.55);
   }

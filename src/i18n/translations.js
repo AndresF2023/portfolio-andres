@@ -34,6 +34,7 @@ export const translations = {
       prevImage: 'Previous screenshot',
       nextImage: 'Next screenshot',
       inProduction: 'In production',
+      inDevelopment: 'In development',
       items: [
         {
           name: 'LubriBox',
@@ -42,7 +43,7 @@ export const translations = {
           description:
             "Website for LubriBox Car Service, an oil change shop in Córdoba, Argentina. Customers select their car's brand, model, and year, and the system calculates the exact price for each service based on the engine's oil capacity — backed by a catalog of over 200 models across 17 brands verified for the Argentine market. It also lets customers book an appointment through a 3-step form that opens WhatsApp with a pre-filled message and generates a Google Calendar link. It includes an admin panel with protected login to manage services and categories, with changes persisted to Vercel Blob.",
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-          inProduction: false,
+          status: 'production',
           link: 'https://lubribox.vercel.app',
           images: [
             '/projects/lubribox/main.png',
@@ -58,7 +59,7 @@ export const translations = {
           description:
             "A private platform for tennis coaches that centralizes the staff's daily workflow. It includes a video exercise library organized by technique, with personalized notes per exercise. The players section goes beyond a simple list: each profile tracks playing style, level, strengths, technical corrections, and a tournament calendar. It also includes daily, weekly, and monthly training planning, plus an admin panel to manage which staff members have administrator access. Players, in turn, have access to their own platform where they can view their profile, areas to improve, physical condition, etc.",
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-          inProduction: false,
+          status: 'production',
           images: [
             '/projects/tennis-academy-system/ingreso.png',
             '/projects/tennis-academy-system/gestion.png',
@@ -75,7 +76,7 @@ export const translations = {
           description:
             'Catalog website for Gastaldi Distributions, a distribution company that showcases its products with up-to-date pricing and stock availability. Customers can browse the catalog and reach out directly via WhatsApp to place orders. It includes an admin panel where the team can add, edit, and remove products, update prices, and mark items as in stock or sold out — reflecting those changes in real time for both the internal team and customers browsing the catalog.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-          inProduction: true,
+          status: 'development',
           link: 'https://gastaldi-distribuciones.vercel.app',
           images: [
             '/projects/gastaldi-distributions/main.png',
@@ -89,7 +90,7 @@ export const translations = {
           description:
             'Portfolio website for BOLT, an architecture and design studio based in Córdoba, Argentina, working across Argentina, Paraguay, and Guatemala on projects of different scales: single-family homes, commercial spaces, apartment buildings, collective housing, and educational facilities. The site showcases their projects and the three service tiers they offer — visualization only, preliminary design with renders, or a complete project with construction-ready documentation — with 3D visualization as a core part of every presentation. It includes downloadable PDFs of their commercial proposal and portfolio, and a contact button that redirects to a Google Forms submission.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-          inProduction: true,
+          status: 'development',
           link: 'https://bolt-wheat-alpha.vercel.app',
           images: ['/projects/bolt/main.png'],
         },
@@ -100,7 +101,7 @@ export const translations = {
           description:
             "A workers' compensation settlement calculator built for law firms, applying Argentina's Ley 24.557 and 26.773 formulas based on claim type: temporary disability, partial or total permanent disability, severe disability, or death. It automatically calculates the worker's age, compares the formula result against the legally required minimum floors (editable and saved locally), and applies the 20% commute-accident surcharge when applicable. Each calculation shows a step-by-step breakdown, with printable/PDF-ready results. Everything runs entirely client-side, with no backend or data transmission.",
           tags: ['HTML5', 'CSS3', 'JavaScript'],
-          inProduction: false,
+          status: 'production',
           images: ['/projects/wc-calculator/main.jpg'],
         },
         {
@@ -108,9 +109,9 @@ export const translations = {
           shortDescription:
             'Management system for a kiosk, replacing the paper notebook used to track sales, supplier invoices, and cash register closing.',
           description:
-            "Internal system for a kiosk that replaces the paper notebook used to track sales, supplier invoices, and cash register closing. It centralizes stock, purchase costs, and sales so information that used to be scattered across paper invoices is available instantly. The cash register module requires an open shift before any sale can be logged, and once a shift is closed, its sales and invoices become immutable — the same standard as an already-verified physical cash count. A real-time dashboard summarizes the day: total sold, total spent on restocking, current cash on hand, and low-stock alerts.",
-          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Framer Motion'],
-          inProduction: true,
+            "Internal system for a kiosk that replaces the paper notebook used to track sales, supplier invoices, and cash register closing. It centralizes stock, purchase costs, and sales so information that used to be scattered across paper invoices is available instantly. The cash register module requires an open shift before any sale can be logged, and once a shift is closed, its sales and invoices become immutable — the same standard as an already-verified physical cash count. A real-time dashboard summarizes the day: total sold, total spent on restocking, current cash on hand, and low-stock alerts. Currently building a supplier invoice scanner powered by Claude: a photo of the invoice is enough for it to extract the products, quantities, and prices automatically.",
+          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Claude', 'Framer Motion'],
+          status: 'development',
           images: [
             '/projects/sistema-kiosco/login.png',
             '/projects/sistema-kiosco/resumen.png',
@@ -127,7 +128,7 @@ export const translations = {
           description:
             "An app for chatting with the content of a PDF using AI. Text is extracted directly in the browser — the file itself never reaches a server — and the user can then ask natural-language questions about it, keeping the conversation thread to follow up or ask for clarification. Answers are generated by the Claude API from a system prompt that restricts the model to answering only with the document's content.",
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Claude', 'Framer Motion'],
-          inProduction: false,
+          status: 'production',
           images: ['/projects/chatpdf/main.png', '/projects/chatpdf/chat.png'],
         },
       ],
@@ -179,6 +180,7 @@ export const translations = {
       prevImage: 'Captura anterior',
       nextImage: 'Captura siguiente',
       inProduction: 'En producción',
+      inDevelopment: 'En desarrollo',
       items: [
         {
           name: 'LubriBox',
@@ -187,7 +189,7 @@ export const translations = {
           description:
             'Sitio web para LubriBox Car Service, un lubricentro de Córdoba. Los clientes seleccionan marca, modelo y año de su auto, y el sistema calcula el precio exacto de cada servicio según los litros de aceite del motor — con un catálogo de más de 200 modelos de 17 marcas verificado para el mercado argentino. También permite sacar turno en un formulario de 3 pasos que abre WhatsApp con el mensaje prearmado y genera un link para agendarlo en Google Calendar. Incluye un panel de administrador con login protegido para gestionar servicios y categorías, con los cambios guardados en Vercel Blob.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-          inProduction: false,
+          status: 'production',
           link: 'https://lubribox.vercel.app',
           images: [
             '/projects/lubribox/main.png',
@@ -203,7 +205,7 @@ export const translations = {
           description:
             'Plataforma privada para entrenadores de tenis que centraliza todo el trabajo diario del staff. Incluye una biblioteca de ejercicios en video organizada por categoría técnica, con indicaciones personalizadas por ejercicio. La sección de jugadores va más allá de un simple listado: cada perfil registra estilo de juego, nivel, fortalezas, correcciones técnicas y un calendario de torneos. También cuenta con planificación de entrenamientos diarios, semanales y mensuales, y un panel de administrador para gestionar qué personas del staff tienen acceso como administradores. Los jugadores, por su parte, acceden a una plataforma propia donde pueden ver su perfil, los aspectos a mejorar, su estado físico, etc.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-          inProduction: false,
+          status: 'production',
           images: [
             '/projects/tennis-academy-system/ingreso.png',
             '/projects/tennis-academy-system/gestion.png',
@@ -220,7 +222,7 @@ export const translations = {
           description:
             'Sitio web de catálogo para Gastaldi Distribuciones, una distribuidora que muestra sus productos con precios actualizados y disponibilidad de stock. Los clientes pueden explorar el catálogo y contactar directamente por WhatsApp para hacer sus pedidos. Incluye un panel de administrador donde el equipo puede agregar, editar y eliminar productos, actualizar precios, y marcar qué artículos están en stock o agotados — reflejando esos cambios en tiempo real tanto para el equipo interno como para los clientes que ven el catálogo.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-          inProduction: true,
+          status: 'development',
           link: 'https://gastaldi-distribuciones.vercel.app',
           images: [
             '/projects/gastaldi-distributions/main.png',
@@ -234,7 +236,7 @@ export const translations = {
           description:
             'Sitio de portfolio para BOLT, un estudio de arquitectura y diseño de Córdoba que trabaja en Argentina, Paraguay y Guatemala, en proyectos de distintas escalas: viviendas unifamiliares, comercios, edificios de departamentos, vivienda colectiva y equipamiento educativo. El sitio muestra sus proyectos y las tres modalidades de servicio que ofrecen —solo visualización, anteproyecto con imágenes, o proyecto completo con documentación para obra—, con la visualización 3D como parte central de cada presentación. Incluye descarga en PDF de la propuesta comercial y el portfolio, y un botón de contacto que redirige a un formulario de Google Forms.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-          inProduction: true,
+          status: 'development',
           link: 'https://bolt-wheat-alpha.vercel.app',
           images: ['/projects/bolt/main.png'],
         },
@@ -245,7 +247,7 @@ export const translations = {
           description:
             'Calculadora de liquidaciones ART pensada para estudios jurídicos, que aplica las fórmulas de la Ley 24.557 y 26.773 según el tipo de prestación: ILT, ILP Parcial, ILP Total, Gran Invalidez o Muerte. Calcula automáticamente la edad del trabajador, compara el resultado de la fórmula contra los pisos mínimos vigentes (editables y guardados en el navegador), y aplica el adicional del 20% en accidentes in itinere. El desglose de cada cálculo se muestra paso a paso, con resultados imprimibles en PDF. Todo el procesamiento es 100% del lado del cliente, sin backend ni envío de datos.',
           tags: ['HTML5', 'CSS3', 'JavaScript'],
-          inProduction: false,
+          status: 'production',
           images: ['/projects/wc-calculator/main.jpg'],
         },
         {
@@ -253,9 +255,9 @@ export const translations = {
           shortDescription:
             'Sistema de gestión para un kiosco, en reemplazo del cuaderno donde se anotaban ventas, facturas de proveedores y el cierre de caja.',
           description:
-            'Sistema interno para un kiosco que reemplaza el cuaderno de papel donde se llevaban las ventas, las facturas de proveedores y el arqueo de caja. Centraliza stock, costos de compra y ventas para que esa información, antes dispersa en facturas en papel, esté disponible al instante. El módulo de caja exige un turno abierto para poder registrar ventas, y una vez cerrado el turno, sus ventas y facturas quedan inmutables — el mismo criterio que un arqueo físico ya verificado. Un dashboard en tiempo real resume el día: total vendido, total gastado en reposición, efectivo actual en caja y alertas de stock bajo.',
-          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Framer Motion'],
-          inProduction: true,
+            'Sistema interno para un kiosco que reemplaza el cuaderno de papel donde se llevaban las ventas, las facturas de proveedores y el arqueo de caja. Centraliza stock, costos de compra y ventas para que esa información, antes dispersa en facturas en papel, esté disponible al instante. El módulo de caja exige un turno abierto para poder registrar ventas, y una vez cerrado el turno, sus ventas y facturas quedan inmutables — el mismo criterio que un arqueo físico ya verificado. Un dashboard en tiempo real resume el día: total vendido, total gastado en reposición, efectivo actual en caja y alertas de stock bajo. Actualmente sumándole un escáner de facturas de proveedor con Claude: con una foto de la factura alcanza para que extraiga productos, cantidades y precios automáticamente.',
+          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Claude', 'Framer Motion'],
+          status: 'development',
           images: [
             '/projects/sistema-kiosco/login.png',
             '/projects/sistema-kiosco/resumen.png',
@@ -272,7 +274,7 @@ export const translations = {
           description:
             'Aplicación para conversar con el contenido de un PDF usando IA. El texto se extrae directamente en el navegador —el archivo nunca se sube a un servidor— y después se pueden hacer preguntas en lenguaje natural sobre lo que dice, manteniendo el hilo de la conversación para repreguntar o pedir aclaraciones. Las respuestas las genera la API de Claude a partir de un system prompt que limita al modelo a responder solo con la información del documento.',
           tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Claude', 'Framer Motion'],
-          inProduction: false,
+          status: 'production',
           images: ['/projects/chatpdf/main.png', '/projects/chatpdf/chat.png'],
         },
       ],
